@@ -77,56 +77,6 @@ end
 
 
 
-%% Directly comparing time series by method
-
-%Basisset vs. FIR
-numSubjs=numGoodSubjs;
-taskTimeseriesComp_basisregVsFIR=zeros(size(output.taskGLMVars{1}.fMRI_resids,1),size(output.taskGLMVars_CanonicalHRF{1}.taskdesignmat_hrf_tmasked,2),numSubjs);
-for subjCount=1:numSubjs
-    subjNum=basissetGSRScrub_goodsubjs(subjCount);
-    numTasks=size(output.taskGLMVars_CanonicalHRF{1}.taskdesignmat_hrf_tmasked,2);
-    for taskNum=1:numTasks
-        taskTiming=output_CanonicalHRF.taskGLMVars{subjNum}.taskdesignmat_hrf_tmasked(:,taskNum)>0;
-        for regionNum=1:size(taskTimeseriesComp_basisregVsFIR,1)
-            taskTimeseriesComp_basisregVsFIR(regionNum,taskNum,subjCount)=corr(output.taskGLMVars{subjNum}.fMRI_resids(regionNum,taskTiming)',output_FIRTaskReg.taskGLMVars{subjNum}.fMRI_resids(regionNum,taskTiming)');
-        end
-    end
-end
-disp(['taskTimeseriesComp_basisregVsFIR mean: ' num2str(mean(mean(mean(taskTimeseriesComp_basisregVsFIR))))])
-
-%Basisset vs. noregression
-numSubjs=numGoodSubjs;
-taskTimeseriesComp_basisregVsnoreg=zeros(size(output.taskGLMVars{1}.fMRI_resids,1),size(output.taskGLMVars_CanonicalHRF{1}.taskdesignmat_hrf_tmasked,2),numSubjs);
-for subjCount=1:numSubjs
-    subjNum=basissetGSRScrub_goodsubjs(subjCount);
-    numTasks=size(output.taskGLMVars_CanonicalHRF{1}.taskdesignmat_hrf_tmasked,2);
-    for taskNum=1:numTasks
-        taskTiming=output_CanonicalHRF.taskGLMVars{subjNum}.taskdesignmat_hrf_tmasked(:,taskNum)>0;
-        for regionNum=1:size(taskTimeseriesComp_basisregVsnoreg,1)
-            taskTimeseriesComp_basisregVsnoreg(regionNum,taskNum,subjCount)=corr(output.taskGLMVars{subjNum}.fMRI_resids(regionNum,taskTiming)',output_NoTaskReg.taskGLMVars{subjNum}.fMRI_resids(regionNum,taskTiming)');
-        end
-    end
-end
-disp(['taskTimeseriesComp_basisregVsnoreg mean: ' num2str(mean(mean(mean(taskTimeseriesComp_basisregVsnoreg))))])
-
-%FIR vs. noregression
-numSubjs=numGoodSubjs;
-taskTimeseriesComp_FIRVsnoreg=zeros(size(output.taskGLMVars{1}.fMRI_resids,1),size(output.taskGLMVars_CanonicalHRF{1}.taskdesignmat_hrf_tmasked,2),numSubjs);
-for subjCount=1:numSubjs
-    subjNum=basissetGSRScrub_goodsubjs(subjCount);
-    numTasks=size(output.taskGLMVars_CanonicalHRF{1}.taskdesignmat_hrf_tmasked,2);
-    for taskNum=1:numTasks
-        taskTiming=output_CanonicalHRF.taskGLMVars{subjNum}.taskdesignmat_hrf_tmasked(:,taskNum)>0;
-        for regionNum=1:size(taskTimeseriesComp_FIRVsnoreg,1)
-            taskTimeseriesComp_FIRVsnoreg(regionNum,taskNum,subjCount)=corr(output_FIRTaskReg.taskGLMVars{subjNum}.fMRI_resids(regionNum,taskTiming)',output_NoTaskReg.taskGLMVars{subjNum}.fMRI_resids(regionNum,taskTiming)');
-        end
-    end
-end
-disp(['taskTimeseriesComp_FIRVsnoreg mean: ' num2str(mean(mean(mean(taskTimeseriesComp_FIRVsnoreg))))])
-
-
-
-
 %% FC analysis with constrained basis set regression
 
 %Calculate statistically significant changes in task FC relative to rest FC
