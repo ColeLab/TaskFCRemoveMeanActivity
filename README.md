@@ -5,4 +5,4 @@ Cole MW, Ito T, Schultz D, Mill R, Chen R, Cocuzza C (Preprint) "Task activation
 
 [Minimal model](minimalmodel/MinimalModel.ipynb): A simple model with easy-to-read Python code to demonstrate the basic activation-based task-state FC inflation effect and an effective way to correct the issue.
 
-*empiricalfMRIAnalyses* directory: MATLAB code used for empirical fMRI analyses. Start with *masterscript.m*. Please note that the code has not been tested for use on other servers, version of MATLAB, etc. Feel free to contact the corresponding author with questions.
+*empiricalfMRIAnalyses* directory: MATLAB code used for empirical fMRI analyses. Start with *masterscript.m*. Please note that the code has not been tested for use on other servers, versions of MATLAB, etc. Feel free to contact the corresponding author with questions.
