@@ -7,6 +7,7 @@ https://doi.org/10.1016/j.neuroimage.2018.12.054
 
 [Minimal model](minimalmodel/MinimalModel.ipynb): A simple model with easy-to-read Python code to demonstrate the basic activation-based task-state FC inflation effect and an effective way to correct the issue.
 
+[Neural mass model](neuralmassmodel/NeuralMassModel.ipynb): Jupyter Notebook implementing the neural mass model reported in the paper.
+
 *empiricalfMRIAnalyses* directory: MATLAB code used for empirical fMRI analyses. Start with *masterscript.m*. Please note that the code has not been tested for use on other servers, versions of MATLAB, etc. Feel free to contact the corresponding author with questions.
 
-[Neural mass model](neuralmassmodel/NeuralMassModel.ipynb) directory: Jupyter Notebook implementing the neural mass model reported in the paper.
