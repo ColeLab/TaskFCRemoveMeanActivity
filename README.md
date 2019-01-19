@@ -1,6 +1,7 @@
 # TaskFCRemoveMeanActivity
 
-Code for running simulations and data analysis from:
+*Code for running simulations and data analysis from*:
+
 Cole MW, Ito T, Schultz D, Mill R, Chen R, Cocuzza C (2019). "Task activations produce spurious but systematic inflation of task functional connectivity estimates". NeuroImage. doi:10.1016/j.neuroimage.2018.12.054
 https://authors.elsevier.com/a/1YNWs3lc~r3Jbx
 https://doi.org/10.1016/j.neuroimage.2018.12.054
