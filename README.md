@@ -13,3 +13,7 @@ A preprint version of the article is freely available here: https://www.biorxiv.
 
 *empiricalfMRIAnalyses* directory: MATLAB code used for empirical fMRI analyses. Start with *masterscript.m*. Please note that the code has not been tested for use on other servers, versions of MATLAB, etc. Feel free to contact the corresponding author with questions.
 
+*Notes on running FIR regression to correct task-state FC confounds*:
+* Many software packages are available for running FIR GLMs, such as FSL or AFNI
+* In principle, any regression software can be used to run an FIR regression, so long as you have an FIR design matrix. In practice it is helpful to use a regression approach that can deal well with collinearity, such as a pseudo-inverse approach as is used in sklearn in Python (https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html)
+* Here is a function we created to help convert a (non-convolved) fMRI task timing design matrix into an FIR design matrix: https://github.com/ColeLab/TaskFCRemoveMeanActivity/blob/master/empiricalfMRIAnalyses/convertTaskTimingToFIRDesignMat.m
